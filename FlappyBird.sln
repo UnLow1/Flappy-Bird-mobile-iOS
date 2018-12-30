@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBird", "FlappyBird\FlappyBird.csproj", "{536F7B41-8F1E-44B0-8DAC-F5000FF97020}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Release|iPhone.ActiveCfg = Release|iPhone
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Release|iPhone.Build.0 = Release|iPhone
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{536F7B41-8F1E-44B0-8DAC-F5000FF97020}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
