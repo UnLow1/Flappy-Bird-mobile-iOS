@@ -13,9 +13,11 @@ namespace FlappyBird
         private Player player;
         private SKLabelNode infoLabel;
         private SKLabelNode scoreLabel;
+        private SKLabelNode highscoreLabel;
         private bool gameOver = true;
         private readonly List<Obstacle> obstacles = new List<Obstacle>();
         private readonly string INFO_LABEL_TEXT = "Tap to start new game";
+        private readonly string HIGHSCORE_LABEL_TEXT = "Highscore: ";
         private readonly int DISTANCE_BETWEEN_OBSTACLES = 300;
         private readonly int NUMBER_OF_OBSTACLES = 5;
 
@@ -31,6 +33,7 @@ namespace FlappyBird
             AddChild(player.Sprite);
             infoLabel = CreateInfoLabel();
             scoreLabel = CreateScoreLabel();
+            highscoreLabel = CreateHighscoreLabel();
             PhysicsWorld.DidBeginContact += DidBeginContact;
         }
 
@@ -79,6 +82,18 @@ namespace FlappyBird
             return obstacles[obstacles.Count - 1].PipeDown.Sprite.Position.X;
         }
 
+        private SKLabelNode CreateHighscoreLabel()
+        {
+            var label = new SKLabelNode("Chalkduster")
+            {
+                ZPosition = 1,
+                FontSize = 30,
+                Position = new CGPoint(Frame.Width / 2, Frame.Height - 50)
+            };
+            AddChild(label);
+            return label;
+        }
+
         private SKLabelNode CreateInfoLabel()
         {
             var label = new SKLabelNode("Chalkduster")
@@ -96,7 +111,6 @@ namespace FlappyBird
         {
             var label = new SKLabelNode("Chalkduster")
             {
-                Text = player.Score.ToString(),
                 ZPosition = 1,
                 FontSize = 30,
                 Position = new CGPoint(Frame.Width / 2, Frame.Height - 100)
@@ -110,6 +124,7 @@ namespace FlappyBird
             player.Score = 0;
             scoreLabel.Text = player.Score.ToString();
             infoLabel.Text = String.Empty;
+            highscoreLabel.Text = HIGHSCORE_LABEL_TEXT + player.Highscore;
             gameOver = false;
             obstacles.ForEach(obstacle => RemoveChildren(new SKNode[] { obstacle.PipeUp.Sprite, obstacle.PipeDown.Sprite }));
             obstacles.Clear();
@@ -133,7 +148,7 @@ namespace FlappyBird
         private void GameOver()
         {
             infoLabel.Text = INFO_LABEL_TEXT;
-            player.Sprite.RemoveAllActions();
+            player.GameOver();
             obstacles.ForEach(obstacle =>
             {
                 obstacle.PipeUp.Sprite.RemoveAllActions();

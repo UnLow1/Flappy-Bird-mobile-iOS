@@ -8,6 +8,7 @@ namespace FlappyBird.Model
     {
         public SKSpriteNode Sprite { get; set; }
         public int Score { get; set; } = 0;
+        public int Highscore { get; set; } = 0;
         private readonly nfloat GRAVITY = -100;
         private readonly nfloat JUMP_HEIGHT = 130;
 
@@ -46,6 +47,10 @@ namespace FlappyBird.Model
 
         public void GameOver()
         {
+            Sprite.RemoveAllActions();
+            if (Score > Highscore)
+                Highscore = Score;
+
             //this.player.Sprite.RunAction(SKAction.RotateByAngle(NMath.PI, 1));
             //this.player.Sprite.RunAction(SKAction.MoveBy(0,200,0.5));
             //this.player.Sprite.RunAction(SKAction.MoveBy(0, -800, 2));
